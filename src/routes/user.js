@@ -94,7 +94,7 @@ router.get("/users/signup", auth, async (req, res) => {
     user.isVerified = true;
     await user.save();
 
-    res.redirect(`http://${process.env.HOST}:${process.PORT}/signin`);
+    res.redirect(`${process.env.HOST}/signin`);
   } catch (err) {
     res.status(400).send(err.message);
   }

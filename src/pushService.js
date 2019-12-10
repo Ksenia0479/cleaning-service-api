@@ -47,7 +47,7 @@ const pushService = cron.schedule("*/60 * * * * *", async () => {
             image: "",
             title: `Order Number: #${orderNumber}`,
             text: "Cleaning service will be arrived in 2 hours",
-            url: `http://${process.env.HOST}:${process.env.CLIENT_PORT}/orders/future?id=${_id}`
+            url: `${process.env.HOST}/orders/future?id=${_id}`
           });
           webpush.sendNotification({ endpoint, keys }, payload).catch(err => {
             console.error(err.stack);

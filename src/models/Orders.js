@@ -128,7 +128,7 @@ orderSchema.methods.sendApprovedOrderEmail = async function({ host }) {
   await user.save();
 
   if (contact.email_address) {
-    const orderURL = `http://${process.env.HOST}:${process.env.PORT}/orders?token=${token}`;
+    const orderURL = `${process.env.HOST}/orders?token=${token}`;
 
     const emailParams = {
       to: contact.email_address,
